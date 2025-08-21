@@ -1,0 +1,24 @@
+body{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+input{
+    border-width: 1px;
+}
+input:focus{
+    border-width: 2px;
+}
+.cont{
+    max-width: 240px;
+}
+.custom{
+    background-color: red;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #ccc;
+    border-radius: 4px; /* For rounded corners */
+    vertical-align: middle; /* Align with text */
+    cursor: pointer;
+}
