@@ -4,18 +4,23 @@ let checkbox = document.getElementById('checkbox');
 let inputpass = document.getElementById('pass');
 let content = document.getElementById('content');
 
-formemail.addEventListener('submit',(e)=>{
-    e.preventDefault()
-    content.innerText = inputemail.value;
-})
+if (formemail) {
+    formemail.addEventListener('submit', (e) => {
+        e.preventDefault();
+        localStorage.setItem("email", inputemail.value);
+        window.location.href = "password.html";
+    });
+}
 
-checkbox.addEventListener('click',()=>{
-    if(inputpass.type==='text'){
-        inputpass.type='password'
+if (checkbox && inputpass) {
+    checkbox.addEventListener('click', () => {
+        inputpass.type = (inputpass.type === 'text') ? 'password' : 'text';
+    });
+}
+
+if (content) {
+    let savedEmail = localStorage.getItem("email");
+    if (savedEmail) {
+        content.innerText = savedEmail;
     }
-    else{
-        inputpass.type='text' 
-    }
-})
-
-
+}
