@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
@@ -10,10 +11,9 @@ app.use(express.json());
 app.use(express.static("public")); // serves index.html, password.html, etc.
 
 // MongoDB connection
-mongoose.connect("mongodb+srv://amarnathsooraj:amarnath%40mongodb123@dbcluster.uuvw1xp.mongodb.net/?retryWrites=true&w=majority&appName=DBCluster", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log("✅ MongoDB connected"))
+  .catch(err => console.error("❌ MongoDB connection error:", err));
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "❌ MongoDB connection error:"));
