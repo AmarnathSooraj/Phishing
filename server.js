@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(express.static("public")); // serves index.html, password.html, etc.
 
 // MongoDB connection
-mongoose.connect("mongodb://127.0.0.1:27017/mydb", {
+mongoose.connect("mongodb+srv://amarnathsooraj:amarnath%40mongodb123@dbcluster.uuvw1xp.mongodb.net/?retryWrites=true&w=majority&appName=DBCluster", {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });

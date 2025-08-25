@@ -51,9 +51,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         const text = await res.text();
-        alert(text); // Show backend response
       } catch (err) {
-        alert("❌ Error: " + err.message);
+        alert("err" + err.message);
       }
     });
   }
