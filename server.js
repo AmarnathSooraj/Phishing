@@ -2,11 +2,13 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
+const cors = require("cors");
 
 const app = express();
 const PORT = 3000;
 
 // Middleware
+app.use(cors()); // must come AFTER app is created
 app.use(express.json());
 app.use(express.static("public")); // serves index.html, password.html, etc.
 
@@ -29,11 +31,11 @@ const User = mongoose.model("users", UserSchema); // collection = "users"
 // Routes
 app.post("/submit", async (req, res) => {
   try {
-    console.log("📥 Data received:", req.body); // <-- check terminal
+    console.log("📥 Data received:", req.body); // check terminal
     const { email, password } = req.body;
 
     const newUser = new User({ email, password });
-    await newUser.save(); // save to MongoDB
+    await newUser.save();
 
     res.send("✅ Data saved to MongoDB");
   } catch (err) {
